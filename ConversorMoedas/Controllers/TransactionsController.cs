@@ -20,6 +20,30 @@ namespace ConversorMoedas.Controllers
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private string Baseurl = "http://api.exchangeratesapi.io/v1";
 
+
+        /// <summary>
+        /// Enum Coins list
+        /// </summary>
+        public enum Coins { BRL, EUR, JPY, USD }
+
+        /// <summary>
+        /// Bind list coins
+        /// </summary>
+        /// <returns></returns>
+        public List<SelectListItem> ListCoin()
+        {
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Text = "", Value = "" });
+
+            var values = Enum.GetValues(typeof(Coins));
+            foreach (var r in values)
+            {
+                list.Add(new SelectListItem { Text = r.ToString(), Value = r.ToString() });
+            }
+
+            return list;
+        }
+
         // GET: Transactions
         public ActionResult Index()
         {
@@ -118,24 +142,7 @@ namespace ConversorMoedas.Controllers
             return View(transaction);
         }
 
-        
-
-        // POST: Transactions/Edit/5
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdTransaction,IdUser,OriginCoin,OriginValue,DestinyCoin,ConversionRate,DateTimeUTC")] Transaction transaction)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(transaction).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(transaction);
-        }
-
+         
           
 
         protected override void Dispose(bool disposing)
@@ -148,27 +155,5 @@ namespace ConversorMoedas.Controllers
         }
 
 
-        /// <summary>
-        /// Enum Coins list
-        /// </summary>
-        public enum Coins { BRL, EUR, JPY, USD }
-
-        /// <summary>
-        /// Bind list coins
-        /// </summary>
-        /// <returns></returns>
-        public List<SelectListItem> ListCoin()
-        {
-            var list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Text = "", Value = "" });
-
-            var values = Enum.GetValues(typeof(Coins));
-            foreach (var r in values)
-            {
-                list.Add(new SelectListItem { Text = r.ToString(), Value = r.ToString() });
-            }
-
-            return list;
-        }
     }
 }
