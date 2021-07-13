@@ -43,6 +43,13 @@ namespace ConversorMoedas.Controllers
 
             return list;
         }
+        public List<SelectListItem> ListOriginCoin()
+        {
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Text = "EUR", Value = "EUR" });
+             
+            return list;
+        }
 
         // GET: Transactions
         public ActionResult Index()
@@ -68,6 +75,7 @@ namespace ConversorMoedas.Controllers
         // GET: Transactions/Create
         public ActionResult Create()
         {
+            ViewBag.ListOriginCoin = ListOriginCoin();
             ViewBag.ListCoin = ListCoin();
             return View();
         }
@@ -107,31 +115,37 @@ namespace ConversorMoedas.Controllers
 
                             if (apiTransaction.Success == true)
                             {
+                                //get rate conversion 
                                 decimal rate = Convert.ToDecimal(apiTransaction.Rates[transaction.DestinyCoin].ToString());
 
                                 transaction.ConversionRate = rate;
                                 transaction.DateTimeUTC = DateTime.Now;
                                 db.Transactions.Add(transaction);
+                                //commit data
                                 db.SaveChanges();
-
+                                
+                                //Redirect details 
                                 return RedirectToAction("Details", new { id = transaction.IdTransaction });
                             }
                             else
                             {
                                 APITransactionError apiTransactionError = JsonConvert.DeserializeObject<APITransactionError>(TransResponse);
                                 TempData["Error"] = "Error: " + apiTransactionError.Error.code+ "  -  " +   apiTransactionError.Error.type; 
+                                //Save log alert into file (configuration)
                                 Logger.Info(TempData["Error"].ToString(), "Error API Controller: Create");
                             }
                         }
                         else
                         {
                             TempData["Error"] = "Error: " + result.StatusCode + "  -  " +  result.RequestMessage;
+                            //Save log alert into file (configuration)
                             Logger.Info(TempData["Error"].ToString(), "Error API Controller: Create");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
+                    //Save log error into file (configuration)
                     Logger.Error(ex, "Erro Controller: Create");
                 }
 

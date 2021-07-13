@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.OriginCoin, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.OriginCoin, (IEnumerable<SelectListItem>)ViewBag.ListCoin, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.OriginCoin, (IEnumerable<SelectListItem>)ViewBag.ListOriginCoin, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.OriginCoin, "", new { @class = "text-danger" })
             </div>
         </div>

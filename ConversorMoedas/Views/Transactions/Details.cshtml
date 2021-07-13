@@ -11,6 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.IdTransaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTransaction)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.IdUser)
         </dt>
 
@@ -43,6 +50,13 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.DestinyValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinyValue)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.ConversionRate)
         </dt>
 
@@ -61,6 +75,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTransaction }) |
+    @Html.ActionLink("New", "Create") |
     @Html.ActionLink("Back to List", "Index")
 </p>
