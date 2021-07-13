@@ -13,4 +13,4 @@ Developed in C# using MVC patterns, with 4.8 framework.
 
 </ul>
 
-<p>Para informações sobre o projeto e bancos implementados, consulte o nosso <a href="https://github.com/ProjectConvertCurrency/wiki">Wiki</a>.</p>
+<p>Para informações sobre o projeto e bancos implementados, consulte o nosso <a href="https://github.com/leonardobacelar/ProjectConvertCurrency/wiki/Tutorial">Wiki</a>.</p>
