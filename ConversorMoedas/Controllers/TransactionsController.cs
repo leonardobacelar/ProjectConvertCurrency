@@ -20,7 +20,7 @@ namespace ConversorMoedas.Controllers
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private string Baseurl = "http://api.exchangeratesapi.io/v1";
 
-
+         
         /// <summary>
         /// Enum Coins list
         /// </summary>
