@@ -22,8 +22,8 @@ namespace ConversorMoedas.Data
         public System.Data.Entity.DbSet<ConversorMoedas.Models.Transaction> Transactions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ConversorMoedas.Models.Transaction>().Property(x => x.OriginValue).HasPrecision(18, 4);
-            modelBuilder.Entity<ConversorMoedas.Models.Transaction>().Property(x => x.ConversionRate).HasPrecision(18, 4);
+            modelBuilder.Entity<ConversorMoedas.Models.Transaction>().Property(x => x.OriginValue).HasPrecision(18, 4); //Format precision number 
+            modelBuilder.Entity<ConversorMoedas.Models.Transaction>().Property(x => x.ConversionRate).HasPrecision(18, 4); //Format precision number
         }
     }
 }
