@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ConversorMoedas.Models.Transaction>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTransaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </th>
+        <th>
+
+            @Html.DisplayNameFor(model => model.OriginCoin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinyCoin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConversionRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinyValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeUTC)
+        </th> 
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IdTransaction)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IdUser)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OriginCoin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OriginValue)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DestinyCoin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ConversionRate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DestinyValue)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateTimeUTC)
+    </td> 
+</tr>
+}
+
+</table>

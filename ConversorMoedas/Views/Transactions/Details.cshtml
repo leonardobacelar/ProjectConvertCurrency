@@ -1,0 +1,66 @@
+﻿@model ConversorMoedas.Models.Transaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginCoin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginCoin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinyCoin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinyCoin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConversionRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConversionRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeUTC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTransaction }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
